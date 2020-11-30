@@ -19,8 +19,8 @@ public class User {
 
 	@Column(name = "EMAIL")
 	private String email;
-	
-	@Column(name="USER_NAME")
+
+	@Column(name = "USER_NAME")
 	private String name;
 
 	public Integer getId() {

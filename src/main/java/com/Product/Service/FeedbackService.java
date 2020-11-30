@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.Product.Mapper.FeedbackMapper;
 import com.Product.Model.FeedbackModel;
-import com.Product.entity.Feedback;
+import com.Product.entity.Feedback;  
 import com.Product.respository.FeedbackRepo;
 
 @Service
