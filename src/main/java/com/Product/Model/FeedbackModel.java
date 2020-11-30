@@ -3,7 +3,7 @@ package com.Product.Model;
 public class FeedbackModel extends BaseModel {
 
 	private String feedback_message;
-	private UserModel user;
+	private Integer userId;
 
 	public String getFeedback_message() {
 		return feedback_message;
@@ -13,12 +13,13 @@ public class FeedbackModel extends BaseModel {
 		this.feedback_message = feedback_message;
 	}
 
-	public UserModel getUser() {
-		return user;
+	public Integer getUserId() {
+		return userId;
 	}
 
-	public void setUser(UserModel user) {
-		this.user = user;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
+	
 }

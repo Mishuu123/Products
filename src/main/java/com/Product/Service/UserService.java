@@ -17,6 +17,7 @@ public class UserService {
 
 	@Autowired
 	UserRepo userRepo;
+	
 	public UserModel addUser(UserModel model) {
 		User user = UserMapper.INSTANCE.userModelToEntity(model);
 		User response = userRepo.save(user);
