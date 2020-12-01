@@ -1,4 +1,4 @@
-package com.Product.exception;
+package com.Product.Exception;
 
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;

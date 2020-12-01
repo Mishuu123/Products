@@ -5,12 +5,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Product.Entity.User;
+import com.Product.Exception.NoDataFoundException;
 import com.Product.Mapper.UserMapper;
 import com.Product.Model.UserModel;
 import com.Product.Model.UserModelResponse;
-import com.Product.entity.User;
-import com.Product.exception.NoDataFoundException;
-import com.Product.respository.UserRepo;
+import com.Product.Respository.UserRepo;
 
 @Service
 public class UserService {
@@ -37,4 +37,8 @@ public class UserService {
 
 		
 }
+	public void deleteUser(Integer id){
+		userRepo.deleteById(id);
+	
+	}
 }

@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Product.Entity.Feedback;
 import com.Product.Mapper.FeedbackMapper;
 import com.Product.Model.FeedbackModel;
-import com.Product.entity.Feedback;  
-import com.Product.respository.FeedbackRepo;
+import com.Product.Respository.FeedbackRepo;
 
 @Service
 public class FeedbackService {

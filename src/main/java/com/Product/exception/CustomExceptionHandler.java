@@ -1,4 +1,4 @@
-package com.Product.exception;
+package com.Product.Exception;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

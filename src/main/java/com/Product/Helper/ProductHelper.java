@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.Product.entity.Address;
-import com.Product.entity.Bill;
-import com.Product.entity.Customer;
-import com.Product.entity.Product;
+import com.Product.Entity.Address;
+import com.Product.Entity.Bill;
+import com.Product.Entity.Customer;
+import com.Product.Entity.Product;
 
 @Component
 public class ProductHelper {

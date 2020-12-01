@@ -5,8 +5,8 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import com.Product.Entity.Feedback;
 import com.Product.Model.FeedbackModel;
-import com.Product.entity.Feedback;
 
 @Mapper
 public interface FeedbackMapper  {

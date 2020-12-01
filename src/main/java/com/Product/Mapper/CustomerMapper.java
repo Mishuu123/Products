@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import com.Product.Entity.Customer;
 import com.Product.Model.CustomerModel;
-import com.Product.entity.Customer;
 
 @Mapper(uses = AddressMapper.class)
 public interface CustomerMapper {

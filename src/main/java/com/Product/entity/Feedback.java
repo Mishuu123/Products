@@ -1,4 +1,4 @@
-package com.Product.entity;
+package com.Product.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ public class Feedback {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "FEEDBACK_ID")
-	private Integer id;
+	private Integer feedback_id;
 
 	@Column(name = "FEEDBACK_MEESAGE")
 	private String feedback_message;
@@ -30,12 +30,12 @@ public class Feedback {
 		this.email = email;
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer getFeedback_id() {
+		return feedback_id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setFeedback_id(Integer feedback_id) {
+		this.feedback_id = feedback_id;
 	}
 
 	public String getFeedback_message() {

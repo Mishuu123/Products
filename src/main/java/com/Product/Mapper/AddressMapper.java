@@ -3,8 +3,8 @@ package com.Product.Mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import com.Product.Entity.Address;
 import com.Product.Model.AddressModel;
-import com.Product.entity.Address;
 
 @Mapper
 public interface AddressMapper {

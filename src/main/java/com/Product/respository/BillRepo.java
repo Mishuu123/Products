@@ -1,4 +1,4 @@
-package com.Product.respository;
+package com.Product.Respository;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,8 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.Product.entity.Bill;
-import com.Product.entity.User;
+import com.Product.Entity.Bill;
+import com.Product.Entity.User;
 
 @Repository
 public interface BillRepo extends CrudRepository<Bill, Integer> {

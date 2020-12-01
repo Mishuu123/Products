@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import com.Product.Entity.Bill;
 import com.Product.Model.BillModel;
-import com.Product.entity.Bill;
 
 @Mapper(uses=ProductMapper.class)
 public interface BillMapper {

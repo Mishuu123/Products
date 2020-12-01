@@ -6,12 +6,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Product.Entity.Customer;
 import com.Product.Helper.ProductHelper;
 import com.Product.Mapper.CustomerMapper;
 import com.Product.Model.CustomerModel;
-import com.Product.entity.Customer;
-import com.Product.respository.BillRepo;
-import com.Product.respository.CustomerRepo;
+import com.Product.Respository.BillRepo;
+import com.Product.Respository.CustomerRepo;
 
 
 @Service

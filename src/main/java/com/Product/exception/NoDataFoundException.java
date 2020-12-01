@@ -1,4 +1,4 @@
-package com.Product.exception;
+package com.Product.Exception;
 
 public class NoDataFoundException extends RuntimeException {
 

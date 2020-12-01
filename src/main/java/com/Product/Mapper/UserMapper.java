@@ -3,9 +3,9 @@ package com.Product.Mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import com.Product.Entity.User;
 import com.Product.Model.UserModel;
 import com.Product.Model.UserModelResponse;
-import com.Product.entity.User;
 
 @Mapper
 public interface UserMapper{

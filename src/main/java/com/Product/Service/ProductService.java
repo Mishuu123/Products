@@ -6,10 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Product.Entity.Product;
+import com.Product.Exception.NoDataFoundException;
 import com.Product.Mapper.ProductMapper;
 import com.Product.Model.ProductModel;
-import com.Product.entity.Product;
-import com.Product.respository.ProductRepo;
+import com.Product.Respository.ProductRepo;
 
 @Service
 public class ProductService {
@@ -35,5 +36,18 @@ public class ProductService {
 
 	}
 
+	public void deleteProd(Integer id){
+		prodRepo.deleteById(id);
+	}
 
+	public ProductModel updateProduct(ProductModel product, Integer id)
+	{
+		Optional<Product> response = prodRepo.findById(id);
+		if(!response.isPresent()){
+			 throw new NoDataFoundException();
+		}
+		product.setId(id);
+			prodRepo.save(product);
+		return ProductMapper.INSTANCE.entityToProductModel(response); 
+	}
 }

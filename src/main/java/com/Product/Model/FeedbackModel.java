@@ -1,9 +1,9 @@
 package com.Product.Model;
 
-public class FeedbackModel extends BaseModel {
+public class FeedbackModel {
 
+	private Integer feedback_id;
 	private String feedback_message;
-	private Integer userId;
 	private String email;
 
 	public String getFeedback_message() {
@@ -22,13 +22,15 @@ public class FeedbackModel extends BaseModel {
 		this.email = email;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public Integer getFeedback_id() {
+		return feedback_id;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setFeedback_id(Integer feedback_id) {
+		this.feedback_id = feedback_id;
 	}
+
+	
 
 	
 }
