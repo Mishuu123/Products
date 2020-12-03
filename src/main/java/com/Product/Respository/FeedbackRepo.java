@@ -8,9 +8,4 @@ import com.Product.Entity.Feedback;
 @Repository
 public interface FeedbackRepo extends CrudRepository<Feedback, Integer> {
 
-	Feedback save(Feedback feedback);
-	
-	Iterable<Feedback> findAll();
-	
-
 }

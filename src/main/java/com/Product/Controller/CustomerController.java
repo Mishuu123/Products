@@ -1,4 +1,4 @@
-package com.Product.controller;
+package com.Product.Controller;
 
 import java.util.List;
 

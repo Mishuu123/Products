@@ -25,7 +25,7 @@ public class UserService {
 
 	}
 	public UserModelResponse getUser(String email) {
-		Optional<User> response = userRepo.getUserByemail(email);
+		Optional<User> response = userRepo.findByEmail(email);
 		if(response.isPresent()){
 		
 			return UserMapper.INSTANCE.entityToUserModelResponse(response.get()); 

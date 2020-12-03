@@ -10,10 +10,6 @@ import com.Product.Entity.User;
 @Repository
 public interface UserRepo extends JpaRepository<User, Integer> {
 
-	 public User save(User user);
+	public Optional<User> findByEmail(String email);
 
-	 public Optional<User> getUserByemail(String email);
-	 
-	 public void deleteById(Integer id);
-	
 }

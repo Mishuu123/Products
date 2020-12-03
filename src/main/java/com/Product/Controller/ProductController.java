@@ -1,4 +1,4 @@
-package com.Product.controller;
+package com.Product.Controller;
 
 import java.util.List;
 
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Product.Entity.Product;
 import com.Product.Model.ProductModel;
 import com.Product.Service.ProductService;
 
@@ -51,16 +50,15 @@ public class ProductController {
 
 	@DeleteMapping
 	@RequestMapping("/deleteProd/{id}")
-	public void deleteProduct(@Valid@PathVariable(value="id") Integer id){
+	public void deleteProduct(@Valid @PathVariable(value = "id") Integer id) {
 		prodService.deleteProd(id);
-		
+
 	}
-	
+
 	@PutMapping("/updateProd/{id}")
 	public ResponseEntity<ProductModel> updateStudent(@RequestBody ProductModel product, @PathVariable Integer id) {
-		ProductModel prodResponse=prodService.updateProduct(product, id);
+		ProductModel prodResponse = prodService.updateProduct(product, id);
 		return ResponseEntity.status(HttpStatus.OK).body(prodResponse);
 
-		
 	}
 }

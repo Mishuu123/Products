@@ -8,11 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Customer {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "CUSTOMER_ID")
@@ -20,15 +19,14 @@ public class Customer {
 
 	@Column(name = "VERSION")
 	private Integer version;
-	
+
 	@Column(name = "CUSTOMER_NAME")
 	private String customerName;
-	
-	
+
 	@Column(name = "BILL_ID")
 	private Integer billId;
-	
-	@OneToOne(mappedBy="customer",cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+
+	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Address address;
 
 	public Integer getId() {

@@ -10,45 +10,39 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-
 
 @Entity
 @Table(name = "ADDRESS")
-public class Address{
+public class Address {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "ADDRESS_ID")
 	private Integer id;
-	
+
 	@Column(name = "VERSION")
 	private Integer version;
-	
+
 	@Column(name = "ADD_ONE")
 	private String addressLOne;
 
 	@Column(name = "ADD_TWO")
 	private String addressLTwo;
-	
+
 	@Column(name = "CITY")
 	private String city;
-	
-	
+
 	@Column(name = "STATE")
 	private String state;
-	
-	
+
 	@Column(name = "ZIP_CODE")
 	private Integer zipCode;
-	
-	
+
 	@Column(name = "COUNTRY")
 	private String country;
-	
+
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name="CUSTOMER_ID")
+	@JoinColumn(name = "CUSTOMER_ID")
 	private Customer customer;
 
 	public String getAddressLOne() {

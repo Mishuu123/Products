@@ -5,11 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Range;
 
 @Entity
 public class Product {
@@ -30,8 +25,8 @@ public class Product {
 
 	@Column(name = "RATE")
 	private Double rate;
-	
-	@Column(name="ISAVAIL")
+
+	@Column(name = "IS_AVAILABLE")
 	private Boolean isAvailable;
 
 	public Boolean getIsAvailable() {

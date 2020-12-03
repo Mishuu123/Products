@@ -1,24 +1,23 @@
 package com.Product.Model;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class AddressModel extends BaseModel {
 
-	@NotNull(message="{address.is.required}")
+	@NotNull(message = "{address.is.required}")
 	private String addressLOne;
-	
-    private String addressLTwo;
-    
+
+	private String addressLTwo;
+
 	private String city;
-	
-	@NotNull(message="{state.is.required}")
+
+	@NotNull(message = "{state.is.required}")
 	private String state;
-	
-	@NotNull(message="ZipCode is required")
+
+	@NotNull(message = "ZipCode is required")
 	private Integer zipCode;
-	
-	@NotNull(message="{country.is.required}")
+
+	@NotNull(message = "{country.is.required}")
 	private String country;
 
 	public String getAddressLOne() {
