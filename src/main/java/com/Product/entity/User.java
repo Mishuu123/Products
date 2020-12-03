@@ -14,6 +14,9 @@ public class User {
 	@Column(name = "USER_ID")
 	private Integer id;
 
+	@Column(name = "VERSION")
+	private Integer version;
+
 	@Column(name = "PASSWORD")
 	private String password;
 
@@ -53,5 +56,13 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
 	}
 }

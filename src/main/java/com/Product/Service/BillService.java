@@ -33,7 +33,6 @@ public class BillService {
 
 	public BillModel addBill(BillModel model) {
 		Bill bill = BillMapper.INSTANCE.billModelToEntity(model);
-		prodHelper.billAssociation(bill);
 		Bill response = billRepo.save(bill);
 		return BillMapper.INSTANCE.entityToBillModel(response);
 

@@ -40,14 +40,15 @@ public class ProductService {
 		prodRepo.deleteById(id);
 	}
 
-	public ProductModel updateProduct(ProductModel product, Integer id)
+	public ProductModel updateProduct(ProductModel model, Integer id)
 	{
 		Optional<Product> response = prodRepo.findById(id);
 		if(!response.isPresent()){
 			 throw new NoDataFoundException();
 		}
-		product.setId(id);
-			prodRepo.save(product);
-		return ProductMapper.INSTANCE.entityToProductModel(response); 
+		model.setId(id);
+		Product product=ProductMapper.INSTANCE.productModelToEntity(model);
+	   Product s= prodRepo.save(product);
+		return ProductMapper.INSTANCE.entityToProductModel(s); 
 	}
 }

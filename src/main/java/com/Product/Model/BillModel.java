@@ -1,31 +1,33 @@
 package com.Product.Model;
 
-import java.util.List;
-
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
 
 public class BillModel extends BaseModel {
-	
-	@NotNull(message="{customerId.is.required}")
+
+	@NotNull(message = "{customerId.is.required}")
 	private Integer customerId;
-	
-	@NotNull(message="{taxRate.is.required}")
-	@Range(min=1,max=36,message="{taxRate.not.exceed.36}")
+
+	@NotNull(message = "{taxRate.is.required}")
+	@Range(min = 1, max = 36, message = "{taxRate.not.exceed.36}")
 	private Double taxRate;
-	
-	@NotNull(message="{totalPrice.is.required}")
+
+	@NotNull(message = "{totalPrice.is.required}")
 	private Double totalPrice;
 
-	private List<ProductModel> product;
+	private Integer productId;
 
-	public List<ProductModel> getProduct() {
-		return product;
+	@NotNull(message = "{quantity.is.required}")
+	@Range(min = 1, max = 1000, message = "{quantity.not.exceed.1000}")
+	private Integer quantity;
+	
+	public Integer getQuantity() {
+		return quantity;
 	}
 
-	public void setProduct(List<ProductModel> product) {
-		this.product = product;
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
 
 	public Integer getCustomerId() {
@@ -50,6 +52,14 @@ public class BillModel extends BaseModel {
 
 	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
+	}
+
+	public Integer getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Integer productId) {
+		this.productId = productId;
 	}
 
 }

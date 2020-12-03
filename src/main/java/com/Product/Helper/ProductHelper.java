@@ -11,12 +11,6 @@ import com.Product.Entity.Product;
 
 @Component
 public class ProductHelper {
-
-	public void billAssociation(Bill bill)
-	{
-		List<Product> products =bill.getProduct();
-        products.forEach(p->p.setBill(bill));
-	}
 	 
 	public void customerAssociation(Customer customer)
 	{

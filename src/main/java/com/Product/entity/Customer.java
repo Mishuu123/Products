@@ -18,6 +18,8 @@ public class Customer {
 	@Column(name = "CUSTOMER_ID")
 	private Integer id;
 
+	@Column(name = "VERSION")
+	private Integer version;
 	
 	@Column(name = "CUSTOMER_NAME")
 	private String customerName;
@@ -59,6 +61,14 @@ public class Customer {
 
 	public void setBillId(Integer billId) {
 		this.billId = billId;
+	}
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
 	}
 
 }

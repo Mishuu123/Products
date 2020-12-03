@@ -16,13 +16,15 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "ADDRESS")
-public class Address extends BaseEntity {
+public class Address{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "ADDRESS_ID")
 	private Integer id;
 	
+	@Column(name = "VERSION")
+	private Integer version;
 	
 	@Column(name = "ADD_ONE")
 	private String addressLOne;
@@ -111,6 +113,14 @@ public class Address extends BaseEntity {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
 	}
 
 }

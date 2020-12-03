@@ -18,36 +18,18 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "PRODUCT_ID")
 	private Integer id;
-	
-	
+
+	@Column(name = "VERSION")
+	private Integer version;
+
 	@Column(name = "PRODUCT_NAME")
 	private String productName;
-	
+
 	@Column(name = "COMPANY")
 	private String company;
-	
-	
+
 	@Column(name = "RATE")
 	private Double rate;
-	
-	
-	@Column(name = "TOTAL_PRICE")
-	private Double totalPrice;
-	
-	@Column(name = "QUANTITY")
-	private Integer quantity;
-	
-	@ManyToOne()
-	@JoinColumn(name = "BILL_ID")
-	private Bill bill;
-
-	public Bill getBill() {
-		return bill;
-	}
-
-	public void setBill(Bill bill) {
-		this.bill = bill;
-	}
 
 	public String getProductName() {
 		return productName;
@@ -73,20 +55,19 @@ public class Product {
 		this.rate = rate;
 	}
 
-	public Double getTotalPrice() {
-		return totalPrice;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setTotalPrice(Double totalPrice) {
-		this.totalPrice = totalPrice;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
+	public Integer getVersion() {
+		return version;
 	}
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setVersion(Integer version) {
+		this.version = version;
 	}
-
 }
