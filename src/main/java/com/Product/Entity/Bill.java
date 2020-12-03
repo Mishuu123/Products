@@ -1,8 +1,10 @@
 package com.Product.Entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,14 +15,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
 @Entity
-public class Bill {
+public class Bill implements Serializable {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 5022023880699613995L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "BILL_ID")
 	private Integer id;
 
-	@OneToMany(mappedBy = "billRefPk.bill", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "billRefPk.bill", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private List<BillReference> billRef;
 
 	@Column(name = "CUSTOMER_ID")
