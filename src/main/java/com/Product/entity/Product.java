@@ -30,6 +30,17 @@ public class Product {
 
 	@Column(name = "RATE")
 	private Double rate;
+	
+	@Column(name="ISAVAIL")
+	private Boolean isAvailable;
+
+	public Boolean getIsAvailable() {
+		return isAvailable;
+	}
+
+	public void setIsAvailable(Boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
 
 	public String getProductName() {
 		return productName;

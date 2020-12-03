@@ -1,5 +1,7 @@
 package com.Product.Entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,6 +33,9 @@ public class Bill{
 
 	@Column(name = "PRODUCT_ID")
 	private Integer productId;
+	
+	@Column(name="BILL_DATE")
+	private Date billdate;
 
 	public Integer getId() {
 		return id;
@@ -85,5 +90,13 @@ public class Bill{
 
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
+	}
+
+	public Date getBilldate() {
+		return billdate;
+	}
+
+	public void setBilldate(Date billdate) {
+		this.billdate = billdate;
 	}
 }

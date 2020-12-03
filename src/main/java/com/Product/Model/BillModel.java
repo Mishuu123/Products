@@ -1,5 +1,7 @@
 package com.Product.Model;
 
+import java.util.Date;
+
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
@@ -22,6 +24,16 @@ public class BillModel extends BaseModel {
 	@Range(min = 1, max = 1000, message = "{quantity.not.exceed.1000}")
 	private Integer quantity;
 	
+	private Date BillDate;
+	
+	public Date getBillDate() {
+		return BillDate;
+	}
+
+	public void setBillDate(Date billDate) {
+		BillDate = billDate;
+	}
+
 	public Integer getQuantity() {
 		return quantity;
 	}
