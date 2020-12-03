@@ -1,7 +1,6 @@
 package com.Product.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,33 +25,35 @@ public class BillService {
 	ProductHelper prodHelper;
 
 	public BillModel getBill(Integer id) {
-		Optional<Bill> response = billRepo.findById(id);
-		return BillMapper.INSTANCE.entityToBillModel(response.get());
-
+		Bill savedBills = billRepo.findByBillId(id);
+		return BillMapper.INSTANCE.entityToBillModel(savedBills);
 	}
 
 	public BillModel addBill(BillModel model) {
 		Bill bill = BillMapper.INSTANCE.billModelToEntity(model);
+		bill.getBillRef().forEach(ref -> {
+			ref.getBillRefPk().setBill(bill);
+		});
 		Bill response = billRepo.save(bill);
 		return BillMapper.INSTANCE.entityToBillModel(response);
 
 	}
 
 	public List<BillModel> getAllBill() {
-		Iterable<Bill> response = billRepo.findAll();
-		return BillMapper.INSTANCE.entityToBillModel(response);
+		List<Bill> response = billRepo.findAll();
+		return BillMapper.INSTANCE.entityToBillModelList(response);
 
 	}
 
 	public Double getTotalOfCustomer(Integer id) {
 		List<Bill> bills = billRepo.getBillBycustomerId(id);
-		Double total = bills.stream().mapToDouble(b -> b.getTotalPrice()).sum();
+		Double total = bills.stream().mapToDouble(b -> b.getFinalPrice()).sum();
 		return total;
 
 	}
 
 	public void deleteBill(Integer id) {
-		billRepo.deleteById(id);
+		billRepo.deleteByBillId(id);
 	}
 
 }

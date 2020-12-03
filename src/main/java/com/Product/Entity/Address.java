@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "ADDRESS")
@@ -21,6 +22,7 @@ public class Address {
 	private Integer id;
 
 	@Column(name = "VERSION")
+	@Version
 	private Integer version;
 
 	@Column(name = "ADD_ONE")

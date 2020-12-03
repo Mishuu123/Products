@@ -1,23 +1,27 @@
 package com.Product.Entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Version;
 
 @Entity
-public class Bill{
+public class Bill {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "BILL_ID")
 	private Integer id;
 
-	@Column(name = "VERSION")
-	private Integer version;
+	@OneToMany(mappedBy = "billRefPk.bill", fetch = FetchType.EAGER)
+	private List<BillReference> billRef;
 
 	@Column(name = "CUSTOMER_ID")
 	private Integer customerId;
@@ -25,17 +29,15 @@ public class Bill{
 	@Column(name = "TAX_RATE")
 	private Double taxRate;
 
-	@Column(name = "QUANTITY")
-	private Integer quantity;
+	@Column(name = "FINAL_PRICE")
+	private Double finalPrice;
 
-	@Column(name = "TOTAL_PRICE")
-	private Double totalPrice;
+	@Column(name = "BILL_DATE")
+	private Date billDate;
 
-	@Column(name = "PRODUCT_ID")
-	private Integer productId;
-	
-	@Column(name="BILL_DATE")
-	private Date billdate;
+	@Column(name = "VERSION")
+	@Version
+	private Integer version;
 
 	public Integer getId() {
 		return id;
@@ -45,12 +47,12 @@ public class Bill{
 		this.id = id;
 	}
 
-	public Integer getProductId() {
-		return productId;
+	public List<BillReference> getBillRef() {
+		return billRef;
 	}
 
-	public void setProductId(Integer productId) {
-		this.productId = productId;
+	public void setBillRef(List<BillReference> billRef) {
+		this.billRef = billRef;
 	}
 
 	public Integer getCustomerId() {
@@ -69,13 +71,22 @@ public class Bill{
 		this.taxRate = taxRate;
 	}
 
-	public Double getTotalPrice() {
-		return totalPrice;
+	public Double getFinalPrice() {
+		return finalPrice;
 	}
 
-	public void setTotalPrice(Double totalPrice) {
-		this.totalPrice = totalPrice;
+	public void setFinalPrice(Double finalPrice) {
+		this.finalPrice = finalPrice;
 	}
+
+	public Date getBillDate() {
+		return billDate;
+	}
+
+	public void setBillDate(Date billDate) {
+		this.billDate = billDate;
+	}
+
 	public Integer getVersion() {
 		return version;
 	}
@@ -84,19 +95,4 @@ public class Bill{
 		this.version = version;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
-	public Date getBilldate() {
-		return billdate;
-	}
-
-	public void setBilldate(Date billdate) {
-		this.billdate = billdate;
-	}
 }

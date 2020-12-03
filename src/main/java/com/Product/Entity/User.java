@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Version;
 
 @Entity
 public class User {
@@ -15,6 +16,7 @@ public class User {
 	private Integer id;
 
 	@Column(name = "VERSION")
+	@Version
 	private Integer version;
 
 	@Column(name = "PASSWORD")

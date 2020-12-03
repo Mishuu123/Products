@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Version;
 
 @Entity
 public class Customer {
@@ -18,6 +19,7 @@ public class Customer {
 	private Integer id;
 
 	@Column(name = "VERSION")
+	@Version
 	private Integer version;
 
 	@Column(name = "CUSTOMER_NAME")
