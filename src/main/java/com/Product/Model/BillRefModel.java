@@ -15,6 +15,8 @@ public class BillRefModel {
 	@Range(min = 1, max = 1000, message = "{quantity.not.exceed.1000}")
 	private Integer quantity;
 
+	private Integer version;
+
 	public Integer getQuantity() {
 		return quantity;
 	}
@@ -37,6 +39,14 @@ public class BillRefModel {
 
 	public void setProductId(Integer productId) {
 		this.productId = productId;
+	}
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
 	}
 
 }

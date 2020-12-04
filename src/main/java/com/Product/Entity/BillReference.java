@@ -5,7 +5,11 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "BILL_REF")
@@ -19,11 +23,20 @@ public class BillReference implements Serializable {
 	@EmbeddedId
 	private BillRefPK billRefPk;
 
+	@MapsId("billId")
+	@ManyToOne
+	@JoinColumn(name = "BILL_ID")
+	private Bill bill;
+
 	@Column(name = "QUANTITY")
 	private Integer quantity;
 
 	@Column(name = "TOTAL_PRICE")
 	private Double totalPrice;
+
+	@Column(name = "VERSION")
+	@Version
+	private Integer version;
 
 	public BillRefPK getBillRefPk() {
 		return billRefPk;
@@ -31,6 +44,14 @@ public class BillReference implements Serializable {
 
 	public void setBillRefPk(BillRefPK billRefPk) {
 		this.billRefPk = billRefPk;
+	}
+
+	public Bill getBill() {
+		return bill;
+	}
+
+	public void setBill(Bill bill) {
+		this.bill = bill;
 	}
 
 	public Integer getQuantity() {
@@ -47,5 +68,13 @@ public class BillReference implements Serializable {
 
 	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
+	}
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
 	}
 }

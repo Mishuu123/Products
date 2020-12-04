@@ -2,6 +2,9 @@ package com.Product.Service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,12 +32,13 @@ public class BillService {
 		return BillMapper.INSTANCE.entityToBillModel(savedBills);
 	}
 
+	@Transactional
 	public BillModel addBill(BillModel model) {
 		Bill bill = BillMapper.INSTANCE.billModelToEntity(model);
 		bill.getBillRef().forEach(ref -> {
-			ref.getBillRefPk().setBill(bill);
+			ref.setBill(bill);
 		});
-		Bill response = billRepo.save(bill);
+		Bill response = billRepo.saveAndFlush(bill);
 		return BillMapper.INSTANCE.entityToBillModel(response);
 
 	}
@@ -54,6 +58,16 @@ public class BillService {
 
 	public void deleteBill(Integer id) {
 		billRepo.deleteByBillId(id);
+	}
+
+	@Transactional
+	public BillModel updateBill(@Valid BillModel billRequest) {
+		Bill bill = BillMapper.INSTANCE.billModelToEntity(billRequest);
+		bill.getBillRef().forEach(ref -> {
+			ref.setBill(bill);
+			ref.getBillRefPk().setBillId(bill.getId());
+		});
+		return BillMapper.INSTANCE.entityToBillModel(billRepo.saveAndFlush(bill));
 	}
 
 }

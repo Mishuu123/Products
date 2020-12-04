@@ -7,7 +7,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +26,7 @@ public class Bill implements Serializable {
 	@Column(name = "BILL_ID")
 	private Integer id;
 
-	@OneToMany(mappedBy = "billRefPk.bill", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "bill", cascade = CascadeType.ALL)
 	private List<BillReference> billRef;
 
 	@Column(name = "CUSTOMER_ID")
