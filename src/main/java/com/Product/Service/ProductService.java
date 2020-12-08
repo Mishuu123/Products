@@ -49,6 +49,6 @@ public class ProductService {
 		model.setId(id);
 		Product product=ProductMapper.INSTANCE.productModelToEntity(model);
 	   Product s= prodRepo.save(product);
-		return ProductMapper.INSTANCE.entityToProductModel(s); 
+		return ProductMapper.INSTANCE.entityToProductModel(s);
 	}
 }
