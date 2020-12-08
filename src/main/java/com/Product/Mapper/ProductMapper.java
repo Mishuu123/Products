@@ -1,9 +1,10 @@
 package com.Product.Mapper;
 
 import java.util.List;
-import java.util.Optional;
 
+import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
 import com.Product.Entity.Product;
@@ -14,12 +15,14 @@ public interface ProductMapper {
 
 	ProductMapper INSTANCE=Mappers.getMapper(ProductMapper.class);
 	
+	@Named("entityToModel")
 	public  abstract ProductModel entityToProductModel(Product product);
 	
 	public abstract  Product productModelToEntity(ProductModel model);
 
-	public abstract List<ProductModel> entityToProductModel(Iterable<Product> response);
+	@IterableMapping(qualifiedByName = "entityToModel")
+	public abstract List<ProductModel> entityToProductModelList(List<Product> products);
 
-	public abstract ProductModel entityToProductModel(Optional<Product> response);
+	
 			
 }

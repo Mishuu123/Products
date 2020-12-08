@@ -16,7 +16,6 @@ public interface UserMapper{
 	
 	public abstract User userModelToEntity(UserModel model);
 
-	
 	public abstract UserModelResponse entityToUserModelResponse( User user);
 }
  

@@ -31,8 +31,8 @@ public class ProductService {
 		
 	}
 	public List<ProductModel> getAllProducts() {
-		Iterable<Product> response = prodRepo.findAll();
-		return ProductMapper.INSTANCE.entityToProductModel(response);
+		List<Product> response = prodRepo.findAll();
+		return ProductMapper.INSTANCE.entityToProductModelList(response);
 
 	}
 

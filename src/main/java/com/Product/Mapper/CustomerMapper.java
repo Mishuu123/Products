@@ -1,9 +1,10 @@
 package com.Product.Mapper;
 
 import java.util.List;
-import java.util.Optional;
 
+import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
 import com.Product.Entity.Customer;
@@ -16,9 +17,9 @@ public interface CustomerMapper {
 
 	public abstract Customer customerModelTOEntity(CustomerModel model);
 
-	public abstract CustomerModel entityToCustomerModel(Optional<Customer> response);
-
+	@Named("entityToModel")
 	public abstract CustomerModel entityToCustomerModel(Customer customer);
 
-	public abstract List<CustomerModel> entityToCustomerModel(Iterable<Customer> response);
+	@IterableMapping(qualifiedByName="entityToModel")
+	public abstract List<CustomerModel> entityToCustomerModelList(List<Customer> response);
 }

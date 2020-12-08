@@ -42,8 +42,8 @@ public class CustomerService {
 	}
 
 	public List<CustomerModel> getAllCustomer() {
-		Iterable<Customer> response = customRepo.findAll();
-		return CustomerMapper.INSTANCE.entityToCustomerModel(response);
+		List<Customer> response = (List<Customer>) customRepo.findAll();
+		return CustomerMapper.INSTANCE.entityToCustomerModelList(response);
 
 	}
 

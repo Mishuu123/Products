@@ -24,8 +24,8 @@ public class FeedbackService {
 	}
 
 	public List<FeedbackModel> getAllFeedbacks() {
-		Iterable<Feedback> response = feedRepo.findAll();
-		return FeedbackMapper.INSTANCE.entityToFeedbackModel(response);
+		List<Feedback> response = (List<Feedback>) feedRepo.findAll();
+		return FeedbackMapper.INSTANCE.entityToFeedbackModelList(response);
 
 	}
 
